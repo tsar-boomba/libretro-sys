@@ -2053,7 +2053,7 @@ pub struct CoreAPI {
 
     // Serializes internal state. If failed, or size is lower than
     // pub retro_serialize_size(), it should return false, true otherwise.
-    pub retro_serialize: unsafe extern "C" fn(data: *mut libc::c_void, size: libc::size_t),
+    pub retro_serialize: unsafe extern "C" fn(data: *mut libc::c_void, size: libc::size_t) -> bool,
 
     pub retro_unserialize: unsafe extern "C" fn(data: *const libc::c_void, size: libc::size_t) -> bool,
     pub retro_cheat_reset: unsafe extern "C" fn(),
